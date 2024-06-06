@@ -1,4 +1,4 @@
-package com.loc.newsapp.presentation.common
+package com.example.newsapp.presentation.common
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.shape.RoundedCornerShape

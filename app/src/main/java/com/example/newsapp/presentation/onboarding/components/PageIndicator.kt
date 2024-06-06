@@ -1,4 +1,4 @@
-package com.loc.newsapp.presentation.onboarding.components
+package com.example.newsapp.presentation.onboarding.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.background
@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import com.loc.newsapp.presentation.Dimens.IndicatorSize
+import com.example.newsapp.presentation.Dimens.IndicatorSize
 
 @Composable
 fun PageIndicator(

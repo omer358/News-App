@@ -1,4 +1,4 @@
-package com.loc.newsapp.presentation.onboarding.components
+package com.example.newsapp.presentation.onboarding.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
@@ -17,11 +17,11 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.newsapp.presentation.Dimens.MediumPadding1
+import com.example.newsapp.presentation.Dimens.MediumPadding2
+import com.example.newsapp.presentation.onboarding.Page
+import com.example.newsapp.presentation.onboarding.pages
 import com.loc.newsapp.R
-import com.loc.newsapp.presentation.Dimens.MediumPadding1
-import com.loc.newsapp.presentation.Dimens.MediumPadding2
-import com.loc.newsapp.presentation.onboarding.Page
-import com.loc.newsapp.presentation.onboarding.pages
 
 @Composable
 fun OnBoardingPage(
