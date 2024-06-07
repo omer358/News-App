@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -49,6 +51,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -74,9 +80,9 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
 
     //Dagger Hilt
-//    implementation("com.google.dagger:hilt-android:2.45")
-//    ksp("com.google.dagger:hilt-compiler:2.45")
-//    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
 
     //Retrofit
@@ -96,7 +102,6 @@ dependencies {
     implementation(libs.accompanist.systemuicontroller)
 
     //Paging 3
-    val paging_version = "3.3.0"
     implementation(libs.androidx.paging.runtime)
     implementation(libs.androidx.paging.compose)
 
