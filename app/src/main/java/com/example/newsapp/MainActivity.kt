@@ -10,7 +10,7 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
-import com.example.newsapp.domain.usecases.AppEntryUseCases
+import com.example.newsapp.domain.usecases.app_entry.AppEntryUseCases
 import com.example.newsapp.presentation.nvgraph.NavGraph
 import com.example.newsapp.ui.theme.NewsAppTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
