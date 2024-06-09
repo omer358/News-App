@@ -67,7 +67,6 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate: (String) -> Unit) {
                       navigate(Routes.SearchScreen.route)
             },
             onSearch = { /*TODO*/ },
-            modifier = Modifier.padding(horizontal = MediumPadding1)
         )
         Spacer(modifier = Modifier.height(MediumPadding1))
         Text(

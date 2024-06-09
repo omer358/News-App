@@ -7,6 +7,7 @@ import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -28,6 +29,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.newsapp.R
+import com.example.newsapp.presentation.Dimens.ExtraSmallPadding2
 import com.example.newsapp.presentation.Dimens.IconSize
 import com.example.newsapp.ui.theme.NewsAppTheme
 
@@ -48,7 +50,7 @@ fun SearchBar(
             onClick?.invoke()
         }
     }
-    Box(modifier = modifier) {
+    Box(modifier = modifier.padding(horizontal = ExtraSmallPadding2)) {
         TextField(
             modifier = Modifier
                 .fillMaxWidth()
