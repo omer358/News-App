@@ -17,6 +17,7 @@ import com.example.newsapp.domain.usecases.news.DeleteArticles
 import com.example.newsapp.domain.usecases.news.GetNews
 import com.example.newsapp.domain.usecases.news.NewsUseCases
 import com.example.newsapp.domain.usecases.news.SearchNews
+import com.example.newsapp.domain.usecases.news.SelectArticle
 import com.example.newsapp.domain.usecases.news.SelectArticles
 import com.example.newsapp.domain.usecases.news.UpsertArticles
 import com.example.newsapp.utils.Constants.BASE_URL
@@ -62,23 +63,24 @@ object AppModule {
     @Provides
     @Singleton
     fun provideNewsRepository(
-        newsApi: NewsApi
+        newsApi: NewsApi,
+        newsDao: NewsDao
     ): NewsRepository {
-        return NewsRepositoryImpl(newsApi)
+        return NewsRepositoryImpl(newsApi, newsDao)
     }
 
     @Provides
     @Singleton
     fun provideNewsUseCases(
         newsRepository: NewsRepository,
-        newsDao: NewsDao
     ): NewsUseCases {
         return NewsUseCases(
             getNews = GetNews(newsRepository),
             searchNews = SearchNews(newsRepository),
-            upsertArticles = UpsertArticles(newsDao),
-            deleteArticles = DeleteArticles(newsDao),
-            selectArticles = SelectArticles(newsDao)
+            upsertArticles = UpsertArticles(newsRepository),
+            deleteArticles = DeleteArticles(newsRepository),
+            selectArticles = SelectArticles(newsRepository),
+            selectArticle = SelectArticle(newsRepository)
         )
     }
 

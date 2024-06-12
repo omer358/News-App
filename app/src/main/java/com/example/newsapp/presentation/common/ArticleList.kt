@@ -45,6 +45,11 @@ fun ArticleList(
     onClickArticle: (Article) -> Unit,
     modifier: Modifier = Modifier
 ) {
+    // TODO: implement paging for Room database, to remove the duplicate of the ArticleList fun
+    if (articles.isEmpty()) {
+        EmptyScreen()
+        return
+    }
     LazyColumn(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.spacedBy(MediumPadding1),

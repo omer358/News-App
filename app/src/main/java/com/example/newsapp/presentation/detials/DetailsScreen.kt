@@ -40,7 +40,7 @@ fun DetailsScreen(
     ) {
         DetailsTopBar(
             onBrowsingClick = {
-                Intent(Intent.ACTION_VIEW).also {
+                val browseIntent = Intent(Intent.ACTION_VIEW).also {
                     it.data = Uri.parse(article.url)
                     if (it.resolveActivity(context.packageManager) != null) {
                         context.startActivity(it)
@@ -48,13 +48,14 @@ fun DetailsScreen(
                 }
             },
             onShareClick = {
-                Intent(Intent.ACTION_SEND).also {
+                val sendIntent = Intent(Intent.ACTION_SEND).also {
                     it.type = "text/plain"
                     it.putExtra(Intent.EXTRA_TEXT, article.url)
                 }
+                context.startActivity(Intent.createChooser(sendIntent, "Share Article"))
             },
             onBookmarkClicked = {
-                event(DetailsEvent.SaveArticles)
+                event(DetailsEvent.UpsertDeleteArticles(article))
             },
             onBackClicked = {
                 navigateUp()
@@ -112,8 +113,7 @@ fun DetailsScreenPreview() {
             title = "HSBC believes that \$22 billion Byju’s is now worth zero | TechCrunch",
             url = "\"https://techcrunch.com/2024/06/06/hsbc-believes-indian-edtech-byjus-currently-worth-zero/",
             urlToImage = "\"https://techcrunch.com/wp-content/uploads/2023/06/GettyImages-1257740205.jpg?resize=1200,800"
-        )
-            , event = { /*TODO*/ }) {
+        ), event = { /*TODO*/ }) {
 
         }
     }
