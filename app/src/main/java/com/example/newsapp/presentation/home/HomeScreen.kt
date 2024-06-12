@@ -28,10 +28,13 @@ import com.example.newsapp.domain.model.Article
 import com.example.newsapp.presentation.Dimens.MediumPadding1
 import com.example.newsapp.presentation.common.ArticleList
 import com.example.newsapp.presentation.common.SearchBar
-import com.example.newsapp.presentation.nvgraph.Routes
 
 @Composable
-fun HomeScreen(articles: LazyPagingItems<Article>, navigate: (String) -> Unit) {
+fun HomeScreen(
+    articles: LazyPagingItems<Article>,
+    navigateToDetails: (Article) -> Unit,
+    navigateToSearch: () -> Unit
+) {
     val titles by remember {
         derivedStateOf {
             if (articles.itemCount > 10) {
@@ -64,7 +67,7 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate: (String) -> Unit) {
             readOnly = true,
             onValueChange = {},
             onClick = {
-                      navigate(Routes.SearchScreen.route)
+                navigateToSearch()
             },
             onSearch = { /*TODO*/ },
         )
@@ -81,7 +84,7 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigate: (String) -> Unit) {
         ArticleList(
             articles = articles,
             onClickArticle = {
-                navigate(Routes.DetailsScreen.route)
+                navigateToDetails(it)
             }
         )
     }
